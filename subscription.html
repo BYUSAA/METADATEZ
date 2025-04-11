@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscription Plans | Metadatez</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+    
+    <header class="futuristic-header">
+        <div class="logo-container">
+            <img src="assets/images/logo.png" alt="Metadatez Logo" class="logo">
+            <h1>METADATEZ</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#" id="profile-btn">My Profile</a></li>
+                <li><a href="#" id="logout-btn">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content subscription-page">
+        <section class="subscription-header">
+            <h2>Choose Your Plan</h2>
+            <p>Upgrade to unlock premium features and enhance your Metadatez experience</p>
+            
+            <div class="billing-toggle">
+                <span>Monthly</span>
+                <label class="switch">
+                    <input type="checkbox" id="billing-toggle">
+                    <span class="slider round"></span>
+                </label>
+                <span>Yearly <span class="discount-badge">Save 20%</span></span>
+            </div>
+        </section>
+
+        <section class="subscription-plans">
+            <div class="subscription-card" data-tier="free">
+                <div class="plan-header">
+                    <h3>Free</h3>
+                    <div class="plan-price">
+                        <span class="price">$0</span>
+                        <span class="period">/month</span>
+                    </div>
+                </div>
+                
+                <ul class="plan-features">
+                    <li><i class="fas fa-check"></i> Basic profile</li>
+                    <li><i class="fas fa-check"></i> 3 messages per day</li>
+                    <li><i class="fas fa-check"></i> Limited search filters</li>
+                    <li><i class="fas fa-check"></i> 5 profile views per day</li>
+                    <li><i class="fas fa-times"></i> No read receipts</li>
+                    <li><i class="fas fa-times"></i> No priority listing</li>
+                </ul>
+                
+                <button class="btn-secondary">Current Plan</button>
+            </div>
+            
+            <div class="subscription-card featured" data-tier="classic">
+                <div class="plan-badge">Most Popular</div>
+                <div class="plan-header">
+                    <h3>Classic</h3>
+                    <div class="plan-price">
+                        <span class="price">$9.99</span>
+                        <span class="period">/month</span>
+                    </div>
+                    <span class="yearly-price">$7.99/month billed yearly</span>
+                </div>
+                
+                <ul class="plan-features">
+                    <li><i class="fas fa-check"></i> Unlimited messages</li>
+                    <li><i class="fas fa-check"></i> Advanced search filters</li>
+                    <li><i class="fas fa-check"></i> 20 profile views per day</li>
+                    <li><i class="fas fa-check"></i> Read receipts</li>
+                    <li><i class="fas fa-check"></i> 1 profile boost per week</li>
+                    <li><i class="fas fa-times"></i> No AI matchmaking</li>
+                </ul>
+                
+                <button class="btn-primary">Upgrade to Classic</button>
+            </div>
+            
+            <div class="subscription-card" data-tier="premium">
+                <div class="plan-header">
+                    <h3>Premium</h3>
+                    <div class="plan-price">
+                        <span class="price">$19.99</span>
+                        <span class="period">/month</span>
+                    </div>
+                    <span class="yearly-price">$15.99/month billed yearly</span>
+                </div>
+                
+                <ul class="plan-features">
+                    <li><i class="fas fa-check"></i> All Classic features</li>
+                    <li><i class="fas fa-check"></i> Unlimited profile views</li>
+                    <li><i class="fas fa-check"></i> 5 profile boosts per week</li>
+                    <li><i class="fas fa-check"></i> AI-powered matchmaking</li>
+                    <li><i class="fas fa-check"></i> Priority customer support</li>
+                    <li><i class="fas fa-check"></i> Exclusive events</li>
+                </ul>
+                
+                <button class="btn-primary">Upgrade to Premium</button>
+            </div>
+        </section>
+
+        <section class="subscription-faq">
+            <h3>Frequently Asked Questions</h3>
+            
+            <div class="faq-item">
+                <button class="faq-question">What payment methods do you accept? <i class="fas fa-chevron-down"></i></button>
+                <div class="faq-answer">
+                    <p>We accept all major credit cards (Visa, MasterCard, American Express), PayPal, and cryptocurrency (Bitcoin, Ethereum).</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question">Can I change my plan later? <i class="fas fa-chevron-down"></i></button>
+                <div class="faq-answer">
+                    <p>Yes, you can upgrade or downgrade your plan at any time. Changes will take effect immediately, and you'll receive a prorated credit for any unused time on your current plan.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question">Is there a free trial? <i class="fas fa-chevron-down"></i></button>
+                <div class="faq-answer">
+                    <p>We offer a 7-day free trial for our Classic and Premium plans. No credit card is required for the trial period.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question">How do I cancel my subscription? <i class="fas fa-chevron-down"></i></button>
+                <div class="faq-answer">
+                    <p>You can cancel your subscription at any time from your account settings. After cancellation, you'll continue to have access to premium features until the end of your current billing period.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="futuristic-footer">
+        <!-- Same footer as index.html -->
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
