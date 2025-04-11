@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pen Pal | Metadatez</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="category-page">
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+    
+    <header class="futuristic-header">
+        <div class="logo-container">
+            <img src="assets/images/logo.png" alt="Metadatez Logo" class="logo">
+            <h1>METADATEZ</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#" id="profile-btn">My Profile</a></li>
+                <li><a href="#" id="logout-btn">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <section class="category-header">
+            <div class="category-info">
+                <div class="category-icon large">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <h2>Pen Pal</h2>
+                <p>Connect with inmates through our secure pen pal system. Build meaningful relationships through letters and our unique digital-to-physical delivery system.</p>
+            </div>
+            <div class="category-stats">
+                <div class="stat-card">
+                    <h3>5,620+</h3>
+                    <p>Active Inmates</p>
+                </div>
+                <div class="stat-card">
+                    <h3>78%</h3>
+                    <p>Response Rate</p>
+                </div>
+                <div class="stat-card">
+                    <h3>1,240+</h3>
+                    <p>Facilities</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="category-filters">
+            <h3>Filter Inmates</h3>
+            <div class="filter-options">
+                <select id="location">
+                    <option value="">Location</option>
+                    <option value="federal">Federal</option>
+                    <option value="state">State</option>
+                    <option value="county">County</option>
+                    <option value="international">International</option>
+                </select>
+                
+                <select id="security-level">
+                    <option value="">Security Level</option>
+                    <option value="minimum">Minimum</option>
+                    <option value="medium">Medium</option>
+                    <option value="maximum">Maximum</option>
+                    <option value="death-row">Death Row</option>
+                </select>
+                
+                <select id="interests">
+                    <option value="">Interests</option>
+                    <option value="art">Art</option>
+                    <option value="writing">Writing</option>
+                    <option value="music">Music</option>
+                    <option value="sports">Sports</option>
+                    <option value="religion">Religion</option>
+                </select>
+                
+                <button class="btn-primary" id="apply-filters">Apply Filters</button>
+                <button class="btn-secondary" id="reset-filters">Reset</button>
+            </div>
+        </section>
+
+        <section class="users-section">
+            <div class="section-header">
+                <h3>Featured Inmates</h3>
+                <div class="view-options">
+                    <button class="view-option active" data-view="grid"><i class="fas fa-th"></i></button>
+                    <button class="view-option" data-view="list"><i class="fas fa-list"></i></button>
+                </div>
+            </div>
+            
+            <div class="users-grid">
+                <!-- Inmates will be loaded here by JavaScript -->
+            </div>
+            
+            <div class="load-more">
+                <button class="btn-primary" id="load-more-btn">Load More Profiles</button>
+            </div>
+        </section>
+
+        <section class="penpal-features">
+            <h3>How Our Pen Pal System Works</h3>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mail-bulk"></i>
+                    </div>
+                    <h4>Digital to Physical</h4>
+                    <p>Write messages online that we print and mail to inmates. They can reply via mail which we'll digitize for you.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h4>Photo Sharing</h4>
+                    <p>Send photos through our system that we'll print and mail according to facility guidelines.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h4>Secure & Monitored</h4>
+                    <p>All communications are monitored for safety while maintaining privacy.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <h4>Credit System</h4>
+                    <p>Use credits to send messages and photos. Inmates can earn credits through participation.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="futuristic-footer">
+        <!-- Same footer as index.html -->
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
