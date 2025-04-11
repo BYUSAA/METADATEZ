@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up | Metadatez</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="loader">
+        <div class="loader-circle"></div>
+    </div>
+    
+    <div class="auth-container">
+        <div class="auth-image"></div>
+        
+        <div class="auth-content">
+            <div class="auth-form">
+                <h1>Create Account</h1>
+                <p>Join Metadatez to start your journey of meaningful connections.</p>
+                
+                <form>
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" class="form-control" placeholder="Enter your full name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" class="form-control" placeholder="Create a password" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="confirm-password">Confirm Password</label>
+                        <input type="password" id="confirm-password" class="form-control" placeholder="Confirm your password" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="category">Primary Interest</label>
+                        <select id="category" class="form-control" required>
+                            <option value="">Select a category</option>
+                            <option value="dating">Dating</option>
+                            <option value="marriage">Marriage</option>
+                            <option value="religious">Religious</option>
+                            <option value="polygamy">Polygamy</option>
+                            <option value="friendship">Friendship</option>
+                            <option value="fantasy">Fantasy</option>
+                            <option value="international">International</option>
+                            <option value="business">Business Elites</option>
+                            <option value="specialneeds">Special Needs</option>
+                            <option value="penpal">Pen Pal</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-remember">
+                        <input type="checkbox" id="terms" required>
+                        <label for="terms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+                    </div>
+                    
+                    <button type="submit" class="auth-submit">Create Account</button>
+                    
+                    <div class="auth-divider">
+                        <span>OR</span>
+                    </div>
+                    
+                    <div class="social-auth">
+                        <button type="button" class="social-btn facebook">
+                            <i class="fab fa-facebook-f"></i>
+                            <span>Facebook</span>
+                        </button>
+                        <button type="button" class="social-btn google">
+                            <i class="fab fa-google"></i>
+                            <span>Google</span>
+                        </button>
+                    </div>
+                    
+                    <div class="auth-footer">
+                        Already have an account? <a href="login.html">Login</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
