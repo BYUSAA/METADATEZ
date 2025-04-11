@@ -3,863 +3,384 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Metadatez - Next Generation Connection Platform</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* Global Styles */
-        :root {
-            --primary: #6a11cb;
-            --secondary: #2575fc;
-            --dark: #222;
-            --light: #fff;
-            --accent: #ff6b6b;
-            --success: #20e3b2;
-            --warning: #ffc107;
-            --danger: #ff5252;
-            --gray: #f0f0f0;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        body {
-            background: linear-gradient(135deg, #141e30, #243b55);
-            color: var(--light);
-            min-height: 100vh;
-        }
-
-        /* Header Styles */
-        header {
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(10px);
-            padding: 1rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .logo {
-            font-size: 2rem;
-            font-weight: bold;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-decoration: none;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 1.5rem;
-        }
-
-        .nav-links a {
-            color: var(--light);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--secondary);
-        }
-
-        .auth-buttons {
-            display: flex;
-            gap: 0.5rem;
-        }
-
-        .btn {
-            padding: 0.5rem 1rem;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: 500;
-            transition: all 0.3s;
-        }
-
-        .btn-primary {
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            color: var(--light);
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: var(--light);
-            border: 1px solid var(--light);
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Main Content Styles */
-        main {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
-
-        .hero {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(45deg, #ff9a8b, #ff6a88, #ff99ac);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            opacity: 0.9;
-        }
-
-        /* Categories Section */
-        .categories-section {
-            margin-bottom: 3rem;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 2rem;
-            font-size: 2rem;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            height: 3px;
-            width: 100px;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-        }
-
-        .categories-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .category-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 10px;
-            padding: 1.5rem;
-            text-align: center;
-            transition: all 0.3s;
-            cursor: pointer;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .category-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            border-color: var(--secondary);
-        }
-
-        .category-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .category-card h3 {
-            margin-bottom: 0.5rem;
-            font-size: 1.5rem;
-        }
-
-        .category-card p {
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-
-        /* Features Section */
-        .features-section {
-            margin-bottom: 3rem;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .feature-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-            padding: 2rem;
-            transition: all 0.3s;
-        }
-
-        .feature-card:hover {
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        .feature-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--secondary);
-        }
-
-        .feature-card h3 {
-            margin-bottom: 1rem;
-        }
-
-        /* Testimonials Section */
-        .testimonials-section {
-            margin-bottom: 3rem;
-        }
-
-        .testimonial-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-            padding: 2rem;
-            margin-bottom: 1.5rem;
-            position: relative;
-        }
-
-        .testimonial-card::before {
-            content: '\201C';
-            font-size: 4rem;
-            position: absolute;
-            top: 10px;
-            left: 20px;
-            opacity: 0.2;
-        }
-
-        .user-info {
-            display: flex;
-            align-items: center;
-            margin-top: 1.5rem;
-        }
-
-        .user-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            margin-right: 1rem;
-            object-fit: cover;
-        }
-
-        /* Footer Styles */
-        footer {
-            background: rgba(0, 0, 0, 0.8);
-            padding: 3rem 1rem;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-        }
-
-        .footer-column h3 {
-            margin-bottom: 1.5rem;
-            font-size: 1.2rem;
-            position: relative;
-        }
-
-        .footer-column h3::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            height: 2px;
-            width: 50px;
-            background: var(--secondary);
-        }
-
-        .footer-column ul {
-            list-style: none;
-        }
-
-        .footer-column ul li {
-            margin-bottom: 0.8rem;
-        }
-
-        .footer-column ul li a {
-            color: var(--light);
-            opacity: 0.7;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-
-        .footer-column ul li a:hover {
-            opacity: 1;
-            color: var(--secondary);
-        }
-
-        .social-icons {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .social-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s;
-        }
-
-        .social-icon:hover {
-            background: var(--secondary);
-            transform: translateY(-3px);
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 2rem;
-            margin-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.9rem;
-            opacity: 0.7;
-        }
-
-        /* Modal Styles */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-content {
-            background: #243b55;
-            border-radius: 10px;
-            max-width: 500px;
-            width: 90%;
-            padding: 2rem;
-            position: relative;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--light);
-            opacity: 0.7;
-            transition: opacity 0.3s;
-        }
-
-        .close-modal:hover {
-            opacity: 1;
-        }
-
-        .tab-buttons {
-            display: flex;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            margin-bottom: 1.5rem;
-        }
-
-        .tab-btn {
-            flex: 1;
-            background: transparent;
-            border: none;
-            color: var(--light);
-            padding: 0.8rem;
-            cursor: pointer;
-            opacity: 0.7;
-            font-size: 1rem;
-            transition: all 0.3s;
-        }
-
-        .tab-btn.active {
-            opacity: 1;
-            border-bottom: 2px solid var(--secondary);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 0.8rem;
-            border-radius: 5px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            background: rgba(255, 255, 255, 0.05);
-            color: var(--light);
-            font-size: 1rem;
-        }
-
-        .form-control:focus {
-            outline: none;
-            border-color: var(--secondary);
-            box-shadow: 0 0 0 3px rgba(37, 117, 252, 0.2);
-        }
-
-        .form-select {
-            width: 100%;
-            padding: 0.8rem;
-            border-radius: 5px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            background: rgba(255, 255, 255, 0.05);
-            color: var(--light);
-            font-size: 1rem;
-        }
-
-        .form-check-label {
-            display: flex;
-            align-items: center;
-            margin-bottom: 0.5rem;
-        }
-
-        .form-check-input {
-            margin-right: 0.5rem;
-        }
-
-        .submit-btn {
-            width: 100%;
-            padding: 0.8rem;
-            font-size: 1rem;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            color: var(--light);
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .form-footer {
-            text-align: center;
-            margin-top: 1.5rem;
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-
-        .form-footer a {
-            color: var(--secondary);
-            text-decoration: none;
-        }
-
-        /* Responsive Styles */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .mobile-menu-toggle {
-                display: block;
-                font-size: 1.5rem;
-                cursor: pointer;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-        }
-
-        /* Subscriptions Section */
-        .subscription-section {
-            margin-bottom: 3rem;
-        }
-
-        .subscription-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .subscription-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-            padding: 2rem;
-            text-align: center;
-            transition: all 0.3s;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .subscription-card.popular {
-            border-color: var(--secondary);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .popular-badge {
-            position: absolute;
-            top: 0;
-            right: 0;
-            background: var(--secondary);
-            padding: 0.5rem 1rem;
-            font-size: 0.8rem;
-            font-weight: bold;
-            transform: rotate(45deg) translate(20%, -100%);
-            transform-origin: top right;
-        }
-
-        .price {
-            font-size: 2.5rem;
-            margin: 1rem 0;
-            font-weight: bold;
-        }
-
-        .price span {
-            font-size: 1rem;
-            opacity: 0.7;
-        }
-
-        .features-list {
-            list-style: none;
-            margin: 1.5rem 0;
-            text-align: left;
-        }
-
-        .features-list li {
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-        }
-
-        .features-list li i {
-            margin-right: 0.5rem;
-            color: var(--success);
-        }
-
-        .feature-unavailable {
-            opacity: 0.5;
-        }
-
-        .feature-unavailable i {
-            color: var(--danger) !important;
-        }
-
-        .mobile-menu {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.95);
-            z-index: 200;
-            padding: 2rem;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .close-menu {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        .mobile-menu a {
-            color: var(--light);
-            text-decoration: none;
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            transition: color 0.3s;
-        }
-
-        .mobile-menu a:hover {
-            color: var(--secondary);
-        }
-    </style>
+    <title>Metadatez - Next-Gen Dating & Pen Pal Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="index.html" class="logo">Metadatez</a>
-            <div class="nav-links">
-                <a href="#categories">Categories</a>
-                <a href="#features">Features</a>
-                <a href="#testimonials">Testimonials</a>
-                <a href="#pricing">Pricing</a>
-                <a href="#about">About</a>
-                <a href="#contact">Contact</a>
+    <div class="loader">
+        <div class="loader-circle"></div>
+    </div>
+    
+    <header class="futuristic-header">
+        <div class="container">
+            <div class="logo">
+                <span class="logo-icon">M</span>
+                <span class="logo-text">METADATEZ</span>
             </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                </ul>
+            </nav>
             <div class="auth-buttons">
-                <button class="btn btn-outline" id="login-btn">Login</button>
-                <button class="btn btn-primary" id="signup-btn">Sign Up</button>
+                <a href="login.html" class="btn btn-login">Login</a>
+                <a href="signup.html" class="btn btn-signup">Sign Up</a>
             </div>
-            <div class="mobile-menu-toggle" id="menu-toggle">
+            <div class="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
             </div>
-        </nav>
+        </div>
     </header>
 
-    <div class="mobile-menu" id="mobile-menu">
-        <div class="close-menu" id="close-menu">
-            <i class="fas fa-times"></i>
-        </div>
-        <a href="#categories">Categories</a>
-        <a href="#features">Features</a>
-        <a href="#testimonials">Testimonials</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-        <button class="btn btn-outline" style="margin-top: 1rem;">Login</button>
-        <button class="btn btn-primary" style="margin-top: 1rem;">Sign Up</button>
+    <div class="mobile-menu">
+        <ul>
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="signup.html">Sign Up</a></li>
+        </ul>
     </div>
 
-    <main>
-        <section class="hero">
-            <h1>Connect Beyond Boundaries</h1>
-            <p>Metadatez is a next-generation platform that helps you find meaningful connections, whether you're looking for love, friendship, or business partnerships. Our innovative features and diverse categories ensure you'll find exactly what you're seeking.</p>
-            <button class="btn btn-primary" id="hero-signup-btn">Get Started Now</button>
-        </section>
-
-        <section class="categories-section" id="categories">
-            <h2 class="section-title">Explore Our Categories</h2>
-            <div class="categories-grid">
-                <div class="category-card" onclick="window.location.href='dating.html'">
-                    <div class="category-icon">
-                        <i class="fas fa-heart" style="color: #ff6b6b;"></i>
-                    </div>
-                    <h3>Dating</h3>
-                    <p>Find your perfect match for casual or serious dating with our AI-powered matchmaking.</p>
-                </div>
-                <div class="category-card" onclick="window.location.href='marriage.html'">
-                    <div class="category-icon">
-                        <i class="fas fa-ring" style="color: #ffd166;"></i>
-                    </div>
-                    <h3>Marriage</h3>
-                    <p>Connect with people who are ready for commitment and looking for a life partner.</p>
-                </div>
-                <div class="category-card" onclick="window.location.href='religious.html'">
-                    <div class="category-icon">
-                        <i class="fas fa-pray" style="color: #06d6a0;"></i>
-                    </div>
-                    <h3>Religious</h3>
-                    <p>Meet others who share your faith and spiritual values for meaningful connections.</p>
-                </div>
-                <div class="category-card" onclick="window.location.href='polygamy.html'">
-                    <div class="category-icon">
-                        <i class="fas fa-users" style="color: #118ab2;"></i>
-                    </div>
-                    <h3>Polygamy</h3>
-                    <p>Explore non-traditional relationship structures in a safe and accepting environment.</p>
-                </div>
-                <div class="category-card" onclick="window.location.href='friendship.html'">
-                    <div class="category-icon">
-                        <i class="fas fa-user-friends" style="color: #73d2de;"></i>
-                    </div>
-                    <h3>Friendship</h3>
-                    <p>Build platonic connections and find companions who share your interests.</p>
-                </div>
-                <div class="category-card" onclick="window.location.href='fantasy.html'">
-                    <div class="category-icon">
-                        <i class="fas fa-mask" style="color: #9b5de5;"></i>
-                    </div>
-                    <h3>Fantasy</h3>
-                    <p>Explore your fantasies in a judgment-free zone with like-minded individuals.</p>
-                </div>
-                <div class="category-card" onclick="window.location.href='international.html'">
-                    <div class="category-icon">
-                        <i class="fas fa-globe-americas" style="color: #0077b6;"></i>
-                    </div>
-                    <h3>International</h3>
-                    <p>Connect with people from around the world and explore cross-cultural relationships.</p>
-                </div>
-                <div class="category-card" onclick="window.location.href='business.html'">
-                    <div class="category-icon">
-                        <i class="fas fa-briefcase" style="color: #ff9e00;"></i>
-                    </div>
-                    <h3>Business Elites</h3>
-                    <p>Network with professionals and entrepreneurs for business and career opportunities.</p>
-                </div>
-                <div class="category-card" onclick="window.location.href='specialneeds.html'">
-                    <div class="category-icon">
-                        <i class="fas fa-hands-helping" style="color: #ef476f;"></i>
-                    </div>
-                    <h3>Special Needs</h3>
-                    <p>Find understanding partners who appreciate your unique needs and circumstances.</p>
-                </div>
-                <div class="category-card" onclick="window.location.href='penpal.html'">
-                    <div class="category-icon">
-                        <i class="fas fa-envelope-open-text" style="color: #4cc9f0;"></i>
-                    </div>
-                    <h3>Pen Pal</h3>
-                    <p>Connect with inmates and others seeking long-distance correspondence and support.</p>
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="futuristic-title">Connect Beyond Boundaries</h1>
+                <p class="hero-subtitle">The next-generation dating and inmate pen-pal platform with AI-powered matching and real-time interaction.</p>
+                <div class="hero-buttons">
+                    <a href="signup.html" class="btn btn-primary">Get Started</a>
+                    <a href="#how-it-works" class="btn btn-secondary">Learn More</a>
                 </div>
             </div>
-        </section>
+            <div class="hero-image">
+                <div class="floating-cards">
+                    <div class="card card1"></div>
+                    <div class="card card2"></div>
+                    <div class="card card3"></div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <section class="features-section" id="features">
-            <h2 class="section-title">Why Choose Metadatez</h2>
+    <section class="categories" id="categories">
+        <div class="container">
+            <h2 class="section-title">Find Your Perfect Connection</h2>
+            <p class="section-subtitle">Choose from our diverse categories to find exactly what you're looking for</p>
+            
+            <div class="category-grid">
+                <a href="dating.html" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Dating</h3>
+                    <p>Find romantic connections with like-minded individuals</p>
+                </a>
+                
+                <a href="marriage.html" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-ring"></i>
+                    </div>
+                    <h3>Marriage</h3>
+                    <p>For those seeking lifelong commitment</p>
+                </a>
+                
+                <a href="religious.html" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-pray"></i>
+                    </div>
+                    <h3>Religious</h3>
+                    <p>Connect with people who share your faith</p>
+                </a>
+                
+                <a href="polygamy.html" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Polygamy</h3>
+                    <p>For those interested in multiple partner relationships</p>
+                </a>
+                
+                <a href="friendship.html" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3>Friendship</h3>
+                    <p>Build meaningful platonic relationships</p>
+                </a>
+                
+                <a href="fantasy.html" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <h3>Fantasy</h3>
+                    <p>Explore your wildest imagination with compatible partners</p>
+                </a>
+                
+                <a href="international.html" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>International</h3>
+                    <p>Connect with people across borders</p>
+                </a>
+                
+                <a href="business.html" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>Business Elites</h3>
+                    <p>Network with professionals and entrepreneurs</p>
+                </a>
+                
+                <a href="specialneeds.html" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-wheelchair"></i>
+                    </div>
+                    <h3>Special Needs</h3>
+                    <p>Inclusive dating for people with disabilities</p>
+                </a>
+                
+                <a href="penpal.html" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Pen Pal</h3>
+                    <p>Write to inmates and make meaningful connections</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Why Choose Metadatez?</h2>
+            <p class="section-subtitle">Innovative features that set us apart from the competition</p>
+            
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-bolt"></i>
                     </div>
                     <h3>Real-Time Interaction</h3>
-                    <p>Our platform enables instant communication with real-time alerts via email or SMS, ensuring you never miss an important connection.</p>
+                    <p>Inmates receive instant alerts via email/SMS even with limited internet access.</p>
                 </div>
+                
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-brain"></i>
+                        <i class="fas fa-coins"></i>
                     </div>
-                    <h3>AI-Powered Matching</h3>
-                    <p>Our intelligent algorithm suggests perfect matches and even helps break the ice with smart conversation starters.</p>
+                    <h3>Credit-Based System</h3>
+                    <p>25 credits (25 cents) per inmate interaction (likes, messages, flirts, etc.).</p>
                 </div>
+                
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-shield-alt"></i>
+                        <i class="fas fa-camera"></i>
                     </div>
-                    <h3>Verified Profiles</h3>
-                    <p>Feel secure with our thorough verification process that ensures authentic connections with real people.</p>
+                    <h3>Picture Sending API</h3>
+                    <p>Users upload pictures → printed and mailed via our seamless API.</p>
                 </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>AI Message Prompts</h3>
+                    <p>Smart suggestions for users and inmates to break the ice effortlessly.</p>
+                </div>
+                
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-mobile-alt"></i>
                     </div>
                     <h3>Mobile-First Design</h3>
-                    <p>Enjoy a seamless experience on any device with our responsive, intuitive interface designed for modern users.</p>
+                    <p>Fast, intuitive design optimized for all devices.</p>
                 </div>
+                
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-camera"></i>
+                        <i class="fas fa-shield-alt"></i>
                     </div>
-                    <h3>Picture Sharing</h3>
-                    <p>Share moments with our easy-to-use image sharing system, including our unique print-and-mail feature for inmates.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-credit-card"></i>
-                    </div>
-                    <h3>Flexible Credit System</h3>
-                    <p>Our transparent credit-based system gives you control over your interactions with affordable micro-transactions.</p>
+                    <h3>Verified Profiles</h3>
+                    <p>Inmate verification badge improves user trust and safety.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="testimonials-section" id="testimonials">
-            <h2 class="section-title">What Our Users Say</h2>
-            <div class="testimonial-card">
-                <p>"I never thought I'd find someone who truly understands me until I joined Metadatez. The matching algorithm is incredible, and I'm now happily in a relationship with someone who shares all my values."</p>
-                <div class="user-info">
-                    <img src="/api/placeholder/50/50" alt="User Avatar" class="user-avatar">
-                    <div>
-                        <h4>Sarah J.</h4>
-                        <p>Dating Category Member</p>
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How Metadatez Works</h2>
+            <p class="section-subtitle">Three simple steps to start connecting</p>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Create Your Profile</h3>
+                        <p>Sign up and tell us about yourself and what you're looking for.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Choose Your Category</h3>
+                        <p>Select from our diverse categories to find your perfect match.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Start Connecting</h3>
+                        <p>Use our AI-powered matching to find compatible partners.</p>
                     </div>
                 </div>
             </div>
-            <div class="testimonial-card">
-                <p>"As an inmate, I was looking for meaningful connections with the outside world. The Pen Pal category on Metadatez has changed my life. I've made friends who support me and help me stay positive."</p>
-                <div class="user-info">
-                    <img src="/api/placeholder/50/50" alt="User Avatar" class="user-avatar">
-                    <div>
-                        <h4>Michael T.</h4>
-                        <p>Pen Pal Category Member</p>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-card">
-                <p>"The business networking opportunities on Metadatez are unmatched. I've connected with several entrepreneurs who have become valuable partners in my startup journey."</p>
-                <div class="user-info">
-                    <img src="/api/placeholder/50/50" alt="User Avatar" class="user-avatar">
-                    <div>
-                        <h4>David L.</h4>
-                        <p>Business Elites Category Member</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="subscription-section" id="pricing">
-            <h2 class="section-title">Choose Your Plan</h2>
-            <div class="subscription-grid">
-                <div class="subscription-card">
-                    <h3>Free</h3>
-                    <div class="price">$0<span>/month</span></div>
-                    <p>Basic access to explore connections</p>
-                    <ul class="features-list">
-                        <li><i class="fas fa-check"></i> Create profile & browse</li>
-                        <li><i class="fas fa-check"></i> 3 conversations maximum</li>
-                        <li><i class="fas fa-check"></i> 10 replies per conversation</li>
-                        <li><i class="fas fa-check"></i> 2 media sends allowed</li>
-                        <li class="feature-unavailable"><i class="fas fa-times"></i> Advanced filters</li>
-                        <li class="feature-unavailable"><i class="fas fa-times"></i> Premium features</li>
-                    </ul>
-                    <button class="btn btn-outline">Get Started</button>
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <h2 class="section-title">Success Stories</h2>
+            <p class="section-subtitle">What our users say about us</p>
+            
+            <div class="testimonial-slider">
+                <div class="testimonial active">
+                    <div class="testimonial-content">
+                        <p>"Metadatez helped me find my soulmate after years of searching. The AI matching was incredibly accurate!"</p>
+                        <div class="testimonial-author">
+                            <img src="assets/images/user1.jpg" alt="Sarah J.">
+                            <div>
+                                <h4>Sarah J.</h4>
+                                <span>Found love in Marriage category</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="subscription-card popular">
-                    <div class="popular-badge">Popular</div>
-                    <h3>Classic</h3>
-                    <div class="price">$9.99<span>/month</span></div>
-                    <p>Enhanced features for serious connections</p>
-                    <ul class="features-list">
-                        <li><i class="fas fa-check"></i> All Free features</li>
-                        <li><i class="fas fa-check"></i> Unlimited conversations</li>
-                        <li><i class="fas fa-check"></i> 50 replies per conversation</li>
-                        <li><i class="fas fa-check"></i> 10 media sends allowed</li>
-                        <li><i class="fas fa-check"></i> Advanced matchmaking</li>
-                        <li class="feature-unavailable"><i class="fas fa-times"></i> Premium features</li>
-                    </ul>
-                    <button class="btn btn-primary">Choose Plan</button>
+                
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"As an inmate, Metadatez gave me hope and meaningful connections I couldn't find elsewhere."</p>
+                        <div class="testimonial-author">
+                            <img src="assets/images/user2.jpg" alt="Michael T.">
+                            <div>
+                                <h4>Michael T.</h4>
+                                <span>Pen Pal user</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="subscription-card">
-                    <h3>Premium</h3>
-                    <div class="price">$19.99<span>/month</span></div>
-                    <p>Ultimate access for serious users</p>
-                    <ul class="features-list">
-                        <li><i class="fas fa-check"></i> All Classic features</li>
-                        <li><i class="fas fa-check"></i> Unlimited conversations</li>
-                        <li><i class="fas fa-check"></i> Unlimited replies</li>
-                        <li><i class="fas fa-check"></i> Unlimited media sending</li>
-                        <li><i class="fas fa-check"></i> Priority ranking in search</li>
-                        <li><i class="fas fa-check"></i> Exclusive VIP features</li>
-                    </ul>
-                    <button class="btn btn-outline">Choose Plan</button>
+                
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"The Fantasy category allowed me to explore my desires in a safe, welcoming environment."</p>
+                        <div class="testimonial-author">
+                            <img src="assets/images/user3.jpg" alt="Alex K.">
+                            <div>
+                                <h4>Alex K.</h4>
+                                <span>Fantasy category user</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="slider-controls">
+                    <button class="prev"><i class="fas fa-chevron-left"></i></button>
+                    <div class="dots">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                    <button class="next"><i class="fas fa-chevron-right"></i></button>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Find Your Perfect Match?</h2>
+                <p>Join thousands of happy users who found meaningful connections through Metadatez.</p>
+                <a href="signup.html" class="btn btn-primary">Get Started Now</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="futuristic-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="logo">
+                        <span class="logo-icon">M</span>
+                        <span class="logo-text">METADATEZ</span>
+                    </div>
+                    <p>The next-generation dating and inmate pen-pal platform with AI-powered matching and real-time interaction.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Categories</h3>
+                    <ul>
+                        <li><a href="dating.html">Dating</a></li>
+                        <li><a href="marriage.html">Marriage</a></li>
+                        <li><a href="religious.html">Religious</a></li>
+                        <li><a href="polygamy.html">Polygamy</a></li>
+                        <li><a href="friendship.html">Friendship</a></li>
+                        <li><a href="fantasy.html">Fantasy</a></li>
+                        <li><a href="international.html">International</a></li>
+                        <li><a href="business.html">Business Elites</a></li>
+                        <li><a href="specialneeds.html">Special Needs</a></li>
+                        <li><a href="penpal.html">Pen Pal</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-newsletter">
+                    <h3>Stay Updated</h3>
+                    <p>Subscribe to our newsletter for the latest updates and features.</p>
+                    <form>
+                        <input type="email" placeholder="Your email address">
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Metadatez. All rights reserved.</p>
+                <div class="footer-payments">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-amex"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                    <i class="fab fa-bitcoin"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
