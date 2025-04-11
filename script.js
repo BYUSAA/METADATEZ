@@ -275,3 +275,150 @@ if (window.location.pathname.includes('subscription.html')) {
         });
     });
 }
+// Category Page Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // FAQ Accordion
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        question.addEventListener('click', () => {
+            item.classList.toggle('active');
+        });
+    });
+    
+    // Billing Toggle
+    const billingToggle = document.getElementById('billing-toggle');
+    if (billingToggle) {
+        billingToggle.addEventListener('change', function() {
+            const prices = document.querySelectorAll('.price');
+            const periods = document.querySelectorAll('.period');
+            const yearlyPrices = document.querySelectorAll('.yearly-price');
+            
+            if (this.checked) {
+                // Show yearly prices
+                prices.forEach(price => {
+                    const monthlyPrice = parseFloat(price.textContent.replace('$', ''));
+                    const yearlyPrice = monthlyPrice * 0.8; // 20% discount
+                    price.textContent = '$' + yearlyPrice.toFixed(2);
+                });
+                periods.forEach(period => {
+                    period.textContent = '/year';
+                });
+                yearlyPrices.forEach(price => {
+                    price.style.display = 'none';
+                });
+            } else {
+                // Show monthly prices
+                prices.forEach(price => {
+                    const yearlyPrice = parseFloat(price.textContent.replace('$', ''));
+                    const monthlyPrice = yearlyPrice / 0.8;
+                    price.textContent = '$' + monthlyPrice.toFixed(2);
+                });
+                periods.forEach(period => {
+                    period.textContent = '/month';
+                });
+                yearlyPrices.forEach(price => {
+                    price.style.display = 'block';
+                });
+            }
+        });
+    }
+    
+    // View Options
+    const viewOptions = document.querySelectorAll('.view-option');
+    const usersGrid = document.querySelector('.users-grid');
+    
+    viewOptions.forEach(option => {
+        option.addEventListener('click', function() {
+            viewOptions.forEach(opt => opt.classList.remove('active'));
+            this.classList.add('active');
+            
+            if (this.dataset.view === 'list') {
+                usersGrid.classList.add('list-view');
+            } else {
+                usersGrid.classList.remove('list-view');
+            }
+        });
+    });
+    
+    // Load More Button
+    const loadMoreBtn = document.getElementById('load-more-btn');
+    if (loadMoreBtn) {
+        loadMoreBtn.addEventListener('click', function() {
+            // Simulate loading more users
+            const currentCategory = window.location.pathname.split('/').pop().replace('.html', '');
+            const newUsers = generateFakeUsers(currentCategory, 10);
+            const usersContainer = document.querySelector('.users-grid');
+            
+            newUsers.forEach(user => {
+                const userCard = document.createElement('div');
+                userCard.className = 'user-card';
+                userCard.innerHTML = `
+                    <div class="user-image">
+                        <img src="${user.image}" alt="${user.name}">
+                        ${user.verified ? '<span class="verified-badge"><i class="fas fa-check-circle"></i></span>' : ''}
+                    </div>
+                    <div class="user-info">
+                        <h3>${user.name}, ${user.age}</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> ${user.location}</p>
+                        <div class="user-interests">
+                            ${user.interests.map(int => `<span>${int}</span>`).join('')}
+                        </div>
+                    </div>
+                    <button class="message-btn">Message</button>
+                `;
+                usersContainer.appendChild(userCard);
+            });
+            
+            // Scroll to the newly added users
+            const lastUserCard = usersContainer.lastElementChild;
+            lastUserCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        });
+    }
+    
+    // AI Match Button
+    const aiMatchBtn = document.getElementById('ai-match-btn');
+    if (aiMatchBtn) {
+        aiMatchBtn.addEventListener('click', function() {
+            alert('Our AI is analyzing your preferences to find your perfect match. This feature will be fully implemented in the final version.');
+        });
+    }
+    
+    // Apply Filters Button
+    const applyFiltersBtn = document.getElementById('apply-filters');
+    if (applyFiltersBtn) {
+        applyFiltersBtn.addEventListener('click', function() {
+            alert('Filters will be applied to your search results. This feature will be fully implemented in the final version.');
+        });
+    }
+    
+    // Reset Filters Button
+    const resetFiltersBtn = document.getElementById('reset-filters');
+    if (resetFiltersBtn) {
+        resetFiltersBtn.addEventListener('click', function() {
+            const selects = document.querySelectorAll('.filter-options select');
+            selects.forEach(select => {
+                select.selectedIndex = 0;
+            });
+        });
+    }
+    
+    // Logout Button
+    const logoutBtn = document.getElementById('logout-btn');
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            localStorage.removeItem('metadatezLoggedIn');
+            window.location.href = 'index.html';
+        });
+    }
+    
+    // Profile Button
+    const profileBtn = document.getElementById('profile-btn');
+    if (profileBtn) {
+        profileBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.location.href = 'profile.html';
+        });
+    }
+});
