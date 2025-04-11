@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up | Metadatez</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+    
+    <header class="futuristic-header">
+        <div class="logo-container">
+            <img src="assets/images/logo.png" alt="Metadatez Logo" class="logo">
+            <h1>METADATEZ</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content auth-page">
+        <section class="auth-container">
+            <div class="auth-card">
+                <h2>Create Your Account</h2>
+                <p>Join Metadatez to start connecting today</p>
+                
+                <form id="signup-form">
+                    <div class="form-group">
+                        <label for="signup-email">Email</label>
+                        <input type="email" id="signup-email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="signup-password">Password</label>
+                        <input type="password" id="signup-password" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="confirm-password">Confirm Password</label>
+                        <input type="password" id="confirm-password" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="signup-category">Primary Interest</label>
+                        <select id="signup-category" required>
+                            <option value="">Select a category</option>
+                            <option value="dating">Dating</option>
+                            <option value="marriage">Marriage</option>
+                            <option value="religious">Religious</option>
+                            <option value="polygamy">Polygamy</option>
+                            <option value="friendship">Friendship</option>
+                            <option value="fantasy">Fantasy</option>
+                            <option value="international">International</option>
+                            <option value="business">Business Elites</option>
+                            <option value="specialneeds">Special Needs</option>
+                            <option value="penpal">Pen Pal</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="terms-checkbox">
+                            <input type="checkbox" required> I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary">Create Account</button>
+                    
+                    <div class="auth-divider">
+                        <span>or</span>
+                    </div>
+                    
+                    <div class="social-login">
+                        <button type="button" class="social-btn google">
+                            <i class="fab fa-google"></i> Continue with Google
+                        </button>
+                        <button type="button" class="social-btn facebook">
+                            <i class="fab fa-facebook-f"></i> Continue with Facebook
+                        </button>
+                    </div>
+                    
+                    <p class="auth-footer">Already have an account? <a href="login.html">Login</a></p>
+                </form>
+            </div>
+            
+            <div class="auth-image">
+                <img src="assets/images/signup-illustration.png" alt="Signup illustration">
+                <div class="subscription-promo">
+                    <h3>Premium Features</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Unlimited messaging</li>
+                        <li><i class="fas fa-check"></i> Priority profile boosting</li>
+                        <li><i class="fas fa-check"></i> Advanced search filters</li>
+                        <li><i class="fas fa-check"></i> Read receipts</li>
+                    </ul>
+                    <a href="subscription.html" class="btn-secondary">View Plans</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="futuristic-footer">
+        <!-- Same footer as index.html -->
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
