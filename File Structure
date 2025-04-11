@@ -18,5 +18,5 @@ metadatez/
 ├── penpal.html         (Pen Pal category)
 ├── login.html          (Login page)
 ├── signup.html         (Signup page)
-├── subscription.html   (Subscription plans)
+├── subscription.html   (Subscription page)
 └── profile.html        (User profile)
