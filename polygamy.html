@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polygamy | Metadatez</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="category-page">
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+    
+    <header class="futuristic-header">
+        <div class="logo-container">
+            <img src="assets/images/logo.png" alt="Metadatez Logo" class="logo">
+            <h1>METADATEZ</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#" id="profile-btn">My Profile</a></li>
+                <li><a href="#" id="logout-btn">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <section class="category-header">
+            <div class="category-info">
+                <div class="category-icon large">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h2>Polygamy</h2>
+                <p>A respectful space for those interested in or practicing consensual non-monogamy, polyamory, or polygamous relationships.</p>
+            </div>
+            <div class="category-stats">
+                <div class="stat-card">
+                    <h3>670+</h3>
+                    <p>Active Members</p>
+                </div>
+                <div class="stat-card">
+                    <h3>82%</h3>
+                    <p>Response Rate</p>
+                </div>
+                <div class="stat-card">
+                    <h3>140+</h3>
+                    <p>Success Stories</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="category-filters">
+            <h3>Filter Profiles</h3>
+            <div class="filter-options">
+                <select id="relationship-type">
+                    <option value="">Relationship Type</option>
+                    <option value="polygyny">Polygyny</option>
+                    <option value="polyandry">Polyandry</option>
+                    <option value="polyamory">Polyamory</option>
+                    <option value="swinging">Swinging</option>
+                    <option value="open">Open Relationship</option>
+                </select>
+                
+                <select id="experience-level">
+                    <option value="">Experience Level</option>
+                    <option value="new">New to Polygamy</option>
+                    <option value="experienced">Experienced</option>
+                    <option value="family">Existing Family</option>
+                </select>
+                
+                <select id="seeking-role">
+                    <option value="">Seeking Role</option>
+                    <option value="additional">Additional Partner</option>
+                    <option value="primary">Primary Partner</option>
+                    <option value="secondary">Secondary Partner</option>
+                </select>
+                
+                <button class="btn-primary" id="apply-filters">Apply Filters</button>
+                <button class="btn-secondary" id="reset-filters">Reset</button>
+            </div>
+        </section>
+
+        <section class="users-section">
+            <div class="section-header">
+                <h3>Poly Connections</h3>
+                <div class="view-options">
+                    <button class="view-option active" data-view="grid"><i class="fas fa-th"></i></button>
+                    <button class="view-option" data-view="list"><i class="fas fa-list"></i></button>
+                </div>
+            </div>
+            
+            <div class="users-grid">
+                <!-- Users will be loaded here by JavaScript -->
+            </div>
+            
+            <div class="load-more">
+                <button class="btn-primary" id="load-more-btn">Load More Profiles</button>
+            </div>
+        </section>
+
+        <section class="ai-match-section">
+            <h3>Compatibility Matching</h3>
+            <p>Our specialized algorithm helps match based on relationship styles, boundaries, and expectations for successful poly connections.</p>
+            <button class="btn-primary" id="ai-match-btn">Find My Match</button>
+        </section>
+    </main>
+
+    <footer class="futuristic-footer">
+        <!-- Same footer as index.html -->
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
